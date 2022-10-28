@@ -21,6 +21,8 @@ import {MatListModule} from "@angular/material/list";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {ScrollingModule} from "@angular/cdk/scrolling";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import { GameComponent } from './game/game.component';
+import { GameOverviewComponent } from './game-overview/game-overview.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     VocabComponent,
     LoginComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    GameComponent,
+    GameOverviewComponent
   ],
   imports: [
     BrowserModule,

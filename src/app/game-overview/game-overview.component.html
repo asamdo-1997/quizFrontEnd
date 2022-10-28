@@ -1,0 +1,52 @@
+<mat-toolbar>
+  <button mat-raised-button (click)="returnToOverView()">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </button>
+  <span class="example-spacer"></span>
+  <span class="title">Du bist dran</span>
+  <span class="example-spacer"></span>
+</mat-toolbar>
+<div class="container">
+  <div class="flexbox-panel">
+    <div class="flexbox-item"></div>
+    <div class="flexbox-item">
+      <img [src]="imgUrl" class="game-overview-card-image"><br>
+      <span class="sub-title">Spieler 1</span>
+    </div>
+    <div class="flexbox-item"><span class="sub-title">0 - 1</span></div>
+    <div class="flexbox-item">
+      <img [src]="imgUrl" class="game-overview-card-image"><br>
+      <span class="sub-title">Spieler 2</span>
+    </div>
+    <div class="flexbox-item"></div>
+  </div>
+  <div class="flexbox-panel" *ngFor="let game of games; let i = index">
+    <div class="flexbox-item">
+      <span class="dot-green"></span>
+    </div>
+    <div class="flexbox-item">
+      <span class="dot-green"></span>
+    </div>
+    <div class="flexbox-item">
+      <span class="dot-red"></span>
+    </div>
+    <div class="flexbox-item">
+      <span class="dot-round">{{i}}</span>
+    </div>
+    <div class="flexbox-item">
+      <span class="dot-grey"></span>
+    </div>
+    <div class="flexbox-item">
+      <span class="dot-grey"></span>
+    </div>
+    <div class="flexbox-item">
+      <span class="dot-grey"></span>
+    </div>
+  </div>
+
+
+  <div class="newGameButton-Container">
+    <button mat-raised-button color="accent" (click)="continueGame()">Spielen</button>
+  </div>
+</div>
+

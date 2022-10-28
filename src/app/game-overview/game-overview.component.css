@@ -1,0 +1,94 @@
+.title {
+  margin-left: -50px;
+}
+.game-overview-card-image{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 30px;
+  margin-bottom: 10px;
+}
+.game-overview-card-image{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 30px;
+  margin-left: 14px;
+}
+.newGameButton-Container {
+  width: 100%;
+  text-align: center;
+}
+.newGameButton-Container button{
+  width: 300px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border-radius: 20px;
+}
+.flexbox-panel {
+  margin-top: 50px;
+  margin-left: 150px;
+  margin-right: 150px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+}
+
+.flexbox-item {
+  flex: 0 1 auto;
+}
+
+.flex-item:nth-child(1) {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.flex-item:nth-child(2) {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.flex-item:nth-child(3) {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+.dot-grey {
+  height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-green {
+  height: 25px;
+  width: 25px;
+  background-color: #a1caa3;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-red {
+  height: 25px;
+  width: 25px;
+  background-color: #f69191;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-round {
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  border-radius: 50%;
+  border: #e1e1e1 1px solid;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+  line-height: 50px;
+  box-shadow: 0px 1px 1px 1px #888888;
+}

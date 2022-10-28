@@ -28,10 +28,11 @@ export class DashboardComponent implements OnInit {
   }
 
   startNewGame() {
+    this.route.navigate(['/game-overview'])
 
   }
 
-  logout(){
+  logout() {
     this.route.navigate(['/login'])
   }
 }

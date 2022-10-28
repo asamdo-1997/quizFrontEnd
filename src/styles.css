@@ -6,9 +6,24 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background: linear-gradient(0deg, rgb(177, 186, 217) 0%, rgba(237,225,199,0.5424763655462185) 60%, rgb(219, 238, 214) 98%);
 }
-
+.title {
+  color: white;
+  font-size: 25px;
+  text-shadow: 1px 1px 1px #343434;
+}
+.sub-title {
+  color: white;
+  font-size: 20px;
+  text-shadow: 1px 1px 1px #343434;
+}
 .container{
-  margin-left: 20px;
-  margin-right: 20px;
+  margin: 20px
 }
 
+mat-toolbar {
+  background: transparent!important;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
