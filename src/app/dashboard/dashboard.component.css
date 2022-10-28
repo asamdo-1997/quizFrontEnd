@@ -3,6 +3,10 @@
   font-size: 25px;
   text-shadow: 1px 1px 1px #343434;
 }
+.mat-toolbar mat-icon{
+  color: white;
+  text-shadow: 1px 1px 1px #343434;
+}
 .sub-title {
   color: white;
   font-size: 20px;
