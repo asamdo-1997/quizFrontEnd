@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -20,7 +21,7 @@ export class DashboardComponent implements OnInit {
 
   imgUrl = "https://cdn.dribbble.com/users/5642965/screenshots/12675462/media/a5289f4656018eb4d2f20a72254caf50.jpg?compress=1&resize=1600x1200&vertical=top";
 
-  constructor() {
+  constructor(private route: Router) {
   }
 
   ngOnInit(): void {
@@ -28,5 +29,9 @@ export class DashboardComponent implements OnInit {
 
   startNewGame() {
 
+  }
+
+  logout(){
+    this.route.navigate(['/login'])
   }
 }
