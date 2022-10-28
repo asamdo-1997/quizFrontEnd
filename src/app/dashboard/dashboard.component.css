@@ -1,0 +1,60 @@
+.title {
+  color: white;
+  font-size: 25px;
+  text-shadow: 1px 1px 1px #343434;
+}
+.sub-title {
+  color: white;
+  font-size: 20px;
+  text-shadow: 1px 1px 1px #343434;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+mat-toolbar {
+  background: transparent;
+}
+
+footer {
+  background-color: transparent;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+}
+
+.newGameButton-Container {
+  width: 100%;
+  text-align: center;
+}
+.newGameButton-Container button{
+  width: 300px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border-radius: 20px;
+}
+
+.mat-list-base.inline-list {
+  width: 100%;
+}
+
+.game-overview-card {
+  text-align: center;
+  border-radius: 20px!important;
+  margin-bottom: 20px;
+  min-width: 140px!important;
+}
+.mat-card-actions{
+  margin-bottom: 0px!important;
+}
+
+.game-overview-card-button{
+  width: 100%;
+  border-radius: 20px;
+}
+.game-overview-card-image{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 30px;
+  margin-bottom: 10px;
+}

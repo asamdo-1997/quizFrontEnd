@@ -1,0 +1,20 @@
+<div class="background_image">
+  <mat-toolbar>
+    <span class="title">Quizz Vokabel Trainer</span>
+  </mat-toolbar>
+  <div class="login-page">
+    <div class="login-container">
+      <form [formGroup]="loginForm" type="form">
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="username">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" type="password">
+        </mat-form-field>
+        <button class="btn btn-outline-unique waves-effect" (click)="login()">Sign in</button>
+      </form>
+    </div>
+  </div>
+</div>

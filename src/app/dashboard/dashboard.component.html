@@ -1,0 +1,74 @@
+<mat-toolbar>
+  <span class="title">Quizz Vokabel Trainer</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon matBadge="15" matBadgeColor="warn">mail</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>settings</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>input</mat-icon>
+  </button>
+</mat-toolbar>
+<div class="container">
+
+  <div class="newGameButton-Container">
+    <button mat-raised-button color="accent">Neues Spiel starten +</button>
+  </div>
+
+  <span class="sub-title">Aktuelle Spiele</span>
+  <mat-grid-list cols="3" rowHeight="1:1">
+    <mat-grid-tile *ngFor="let game of games">
+      <mat-card class="game-overview-card">
+        <img [src]="imgUrl" class="game-overview-card-image">
+        <mat-card-title>{{game.spieler2}}</mat-card-title>
+        <mat-card-content>
+          <p>Runde: {{game.runde}} - 9</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button *ngIf="!game.gegnerSpielt" class="game-overview-card-button" mat-raised-button color="primary">
+            Spielen
+          </button>
+          <button *ngIf="game.gegnerSpielt" class="game-overview-card-button" mat-raised-button color="primary"
+                  [disabled]="true">Gegner Spielt
+          </button>
+        </mat-card-actions>
+        <mat-card-footer>
+          <!--
+     <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      -->
+        </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+  <span class="sub-title">Beendete Spiele</span>
+  <mat-grid-list cols="3" rowHeight="1:1">
+    <mat-grid-tile *ngFor="let game of gamesFinished;let i = index">
+      <mat-card class="game-overview-card">
+        <img [src]="imgUrl" class="game-overview-card-image">
+        <mat-card-title>{{game.spieler2}}</mat-card-title>
+        <mat-card-content>
+          <p>Runde: {{game.runde}} - 9</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button class="game-overview-card-button" mat-raised-button color="primary">Anzeigen</button>
+        </mat-card-actions>
+        <mat-card-footer>
+          <!--
+     <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      -->
+        </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+</div>
+
+<footer>
+  <p>Created with &#x2661; from HTW-Berlin</p>
+</footer>
+
