@@ -11,7 +11,6 @@ export class DashboardComponent implements OnInit {
     {id: 1, spieler1: "jonas", spieler2: "Dominik", gegnerSpielt: true, runde: 2},
     {id: 2, spieler1: "jonas", spieler2: "Ata", gegnerSpielt: true, runde: 1},
     {id: 3, spieler1: "jonas", spieler2: "Dominik", gegnerSpielt: false, runde: 1},
-
   ];
 
   gamesFinished = [

@@ -20,6 +20,6 @@ export class GameOverviewComponent implements OnInit {
     this.router.navigate(['/dashboard'])
   }
   continueGame(){
-
+    this.router.navigate(['/game'])
   }
 }

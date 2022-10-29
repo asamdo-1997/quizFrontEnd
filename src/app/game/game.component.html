@@ -1,1 +1,84 @@
-<p>game works!</p>
+<mat-toolbar>
+  <button mat-raised-button (click)="returnToOverview()">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </button>
+  <span class="example-spacer"></span>
+  <span class="title">Runde {{game.runde}}</span>
+  <span class="example-spacer"></span>
+</mat-toolbar>
+<div class="container">
+  <div class="flexbox-panel">
+    <div class="flexbox-item"></div>
+    <div class="flexbox-item">
+      <img [src]="imgUrl" class="game-overview-card-image"><br>
+      <span class="sub-title">Spieler 1</span>
+    </div>
+    <div class="flexbox-item"><span class="sub-title">0 - 1</span></div>
+    <div class="flexbox-item">
+      <img [src]="imgUrl" class="game-overview-card-image"><br>
+      <span class="sub-title">Spieler 2</span>
+    </div>
+    <div class="flexbox-item"></div>
+  </div>
+
+  <div class="question" *ngIf="currentQuestition == 1">
+    <div class="question-container">
+      <mat-card class="example-card">
+        <mat-card-content>
+          <p>{{game.questionList[0].questionText}}</p>
+        </mat-card-content>
+        <mat-card-footer>
+          <mat-progress-bar mode="determinate" [value]="progressbarValue"></mat-progress-bar>
+        </mat-card-footer>
+      </mat-card>
+    </div>
+    <div class="answer-container">
+      <mat-grid-list cols="2" rowHeight="2:1" [gutterSize]="'10px'">
+        <mat-grid-tile>
+          <button (click)="checkAnswer()" mat-raised-button>{{game.questionList[0].AnswerList[0]}}</button>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <button (click)="checkAnswer()" mat-raised-button>{{game.questionList[0].AnswerList[1]}}</button>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <button (click)="checkAnswer()" mat-raised-button>{{game.questionList[0].AnswerList[2]}}</button>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <button (click)="checkAnswer()" mat-raised-button>{{game.questionList[0].AnswerList[3]}}</button>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+
+  <div class="question" *ngIf="currentQuestition == 2">
+    <div class="question-container">
+      <mat-card class="example-card">
+        <mat-card-content>
+          <p>{{game.questionList[1].questionText}}</p>
+        </mat-card-content>
+
+        <mat-card-footer>
+          <mat-progress-bar mode="determinate" [value]="progressbarValue"></mat-progress-bar>
+        </mat-card-footer>
+      </mat-card>
+    </div>
+    <div class="answer-container">
+      <mat-grid-list cols="2" rowHeight="2:1" [gutterSize]="'10px'">
+        <mat-grid-tile>
+          <button (click)="checkAnswer()" mat-raised-button>{{game.questionList[1].AnswerList[0]}}</button>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <button (click)="checkAnswer()" mat-raised-button>{{game.questionList[1].AnswerList[1]}}</button>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <button (click)="checkAnswer()" mat-raised-button>{{game.questionList[1].AnswerList[2]}}</button>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <button (click)="checkAnswer()" mat-raised-button>{{game.questionList[1].AnswerList[3]}}</button>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+
+
+</div>
