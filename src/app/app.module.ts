@@ -23,6 +23,7 @@ import {ScrollingModule} from "@angular/cdk/scrolling";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { GameComponent } from './game/game.component';
 import { GameOverviewComponent } from './game-overview/game-overview.component';
+import { ChangeBackgroundDirective } from './game/change-background.directive';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { GameOverviewComponent } from './game-overview/game-overview.component';
     DashboardComponent,
     ProfileComponent,
     GameComponent,
-    GameOverviewComponent
+    GameOverviewComponent,
+    ChangeBackgroundDirective
   ],
   imports: [
     BrowserModule,
