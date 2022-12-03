@@ -1,0 +1,32 @@
+<div class="background_image">
+  <div class="login-page">
+    <div class="login-container">
+      <form [formGroup]="registerform">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input formControlName="email" matInput placeholder="Email">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Vorname</mat-label>
+          <input formControlName="vorname" matInput placeholder="Vorname">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Nachname</mat-label>
+          <input formControlName="nachname" matInput placeholder="Nachname">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Nutzername</mat-label>
+          <input formControlName="nutzername" matInput placeholder="Nutzername">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+        <button [disabled]="registerform.valid" class="btn btn-outline-unique waves-effect" (click)="register()">Register</button>
+      </form>
+    </div>
+  </div>
+</div>

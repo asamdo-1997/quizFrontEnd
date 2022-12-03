@@ -5,11 +5,13 @@ import {VocabComponent} from "./vocab/vocab.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {GameComponent} from "./game/game.component";
 import {GameOverviewComponent} from "./game-overview/game-overview.component";
+import {RegisterComponent} from "./register/register.component";
 
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'game-overview', component: GameOverviewComponent },
   { path: 'game', component: GameComponent },

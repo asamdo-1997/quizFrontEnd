@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-vocab',
@@ -13,9 +14,13 @@ export class VocabComponent implements OnInit {
   url = environment.vocabAdress + 'vocab/';
   category='';
 
-  constructor(private http: HttpClient) { }
+  displayedColumns: string[] = ['location', 'latitude', 'longitude', 'edit'];
+  dataSource:any;
+
+  constructor(private http: HttpClient, private userService:UserService) { }
 
   ngOnInit(): void {
+    
   }
 
   onFileSelected(event: any) {

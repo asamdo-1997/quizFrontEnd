@@ -24,6 +24,7 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { GameComponent } from './game/game.component';
 import { GameOverviewComponent } from './game-overview/game-overview.component';
 import { ChangeBackgroundDirective } from './game/change-background.directive';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ChangeBackgroundDirective } from './game/change-background.directive';
     ProfileComponent,
     GameComponent,
     GameOverviewComponent,
-    ChangeBackgroundDirective
+    ChangeBackgroundDirective,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

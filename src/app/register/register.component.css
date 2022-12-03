@@ -1,0 +1,54 @@
+.mat-toolbar mat-icon{
+  color: white;
+  text-shadow: 1px 1px 1px #343434;
+}
+.sub-title {
+  color: white;
+  font-size: 20px;
+  text-shadow: 1px 1px 1px #343434;
+}
+.login-page {
+  width: 360px;
+  padding: 30vh 0 0;
+  margin: auto;
+}
+.login-container {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-radius: 10px;
+}
+
+.login-container button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #ff4081;
+  width: 100%;
+  color: white!important;
+  border: 0;
+  border-radius: 10px;
+  padding: 15px;
+  color: #616161;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.login-container button:hover,.login-container button:active,.login-container button:focus {
+  background: #E9E7E5;
+  color: #343434!important;
+}
+
+.background_image {
+  width: 100%;
+  height:100vh;
+}
+.mat-form-field {
+  width: 100%;
+}

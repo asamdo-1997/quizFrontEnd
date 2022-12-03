@@ -1,6 +1,13 @@
-<p>vocab works!</p>
+<div class="fullwidthcontainer">
+  <div class="container">
+    <h1>Upload new Vocab</h1>
+      <mat-form-field class="example-full-width">
+        <mat-label>Kategory</mat-label>
+        <input matInput type="text" [(ngModel)]="category">
+      </mat-form-field>
+    <br>
+    <input type="file" class="file-upload" (change)="onFileSelected($event)">
 
-<h3>Kagtegorie</h3>
-<input type="text" [(ngModel)]="category">
-<br>
-<input type="file" class="file-upload" (change)="onFileSelected($event)">
+  </div>
+</div>
+
