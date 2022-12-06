@@ -20,7 +20,7 @@ export class VocabComponent implements OnInit {
   constructor(private http: HttpClient, private userService:UserService) { }
 
   ngOnInit(): void {
-    
+
   }
 
   onFileSelected(event: any) {

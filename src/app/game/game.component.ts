@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {interval, timeout} from "rxjs";
+import {GameService} from "../services/game.service";
 
 @Component({
   selector: 'app-game',
@@ -14,6 +15,8 @@ export class GameComponent implements OnInit {
   curSec: number = 0;
   currentQuestition: number = 0;
   sub: any;
+  gameId: string = "";
+  isright: boolean = false;
   game =
     {
       id: 1,
@@ -23,36 +26,42 @@ export class GameComponent implements OnInit {
       runde: 1,
       questionList: [
         {
-          questionId: 1,
-          questionText: "Auto",
-          AnswerList: ["Car", "Cur", "Cat", "Cot"],
+          vocabId: 1,
+          name: "Auto",
+          answers: ["Car", "Cur", "Cat", "Cot"],
           rightAnswer: "Car",
         },
         {
-          questionId: 2,
-          questionText: "Straße",
-          AnswerList: ["Stoot", "Street", "Straut", "Struet"],
+          vocabId: 2,
+          name: "Straße",
+          answers: ["Stoot", "Street", "Straut", "Struet"],
           rightAnswer: "Street",
         },
         {
-          questionId: 3,
-          questionText: "Haus",
-          AnswerList: ["Heise", "Hause", "Hoise", "House"],
+          vocabId: 3,
+          name: "Haus",
+          answers: ["Heise", "Hause", "Hoise", "House"],
           rightAnswer: "House",
         }
       ],
     };
 
-  constructor(private route: Router) {
+  constructor(private route: Router, private activatedRoute: ActivatedRoute, private gameService: GameService) {
   }
 
   ngOnInit(): void {
+    this.gameId = this.activatedRoute.snapshot.paramMap.get('id')!;
+    this.gameService.getCurrentRound(this.gameId).subscribe(value => {
+      console.log(value);
+      this.game.questionList = value.questions;
+      console.log(this.game);
+    })
     this.currentQuestition = 1;
     this.startTimer(this.durationOftimer);
   }
 
   returnToOverview() {
-    this.route.navigate(['/game-overview'])
+    //this.route.navigate(['/game-overview/'+this.gameId])
   }
 
   startTimer(seconds: number) {
@@ -62,14 +71,13 @@ export class GameComponent implements OnInit {
     this.sub = timer$.subscribe((sec) => {
       this.progressbarValue = 100 - sec * 100 / seconds;
       this.curSec = sec;
-      console.log(sec);
       if (this.curSec === seconds) {
         this.sub.unsubscribe();
         if (this.currentQuestition < 3) {
           this.currentQuestition++;
           this.startTimer(this.durationOftimer);
         } else {
-          this.route.navigate(['/game-overview'])
+            this.returnToOverview()
         }
       }
     });
@@ -81,7 +89,8 @@ export class GameComponent implements OnInit {
     this.curSec = 0;
   }
 
-  nextAnswer() {
+  nextAnswer(userAnswer: string, vocabId: number) {
+    this.isright=this.checkAnswer(userAnswer,vocabId);
     this.stoppCounter();
     setTimeout(() => {
       console.log(this.currentQuestition);
@@ -89,18 +98,26 @@ export class GameComponent implements OnInit {
         this.currentQuestition++;
         this.startTimer(this.durationOftimer);
       } else {
-        this.route.navigate(['/game-overview']);
+        //this.route.navigate(['/game-overview']);
       }
     }, 1000);
   }
 
-  checkAnswer(userAnswer: string, rightAnswer: string): boolean {
+  checkAnswer(userAnswer: string, vocabId: number): boolean {
+    let rightAnswer = "Zahn";
+    //this.gameService.getRightAnswer(vocabId,1,1,1).subscribe(value => {
+      //console.log(value);
+    //})
+    //hier abfrage für answer
     if (userAnswer == rightAnswer) {
+      this.isright = true;
+      console.log(this.isright)
       return true;
     } else {
+      console.log(this.isright)
       return false;
     }
-    return false;
+
   }
 
 

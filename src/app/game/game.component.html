@@ -25,7 +25,7 @@
     <div class="question-container">
       <mat-card class="example-card">
         <mat-card-content>
-          <p>{{game.questionList[0].questionText}}</p>
+          <p>{{game.questionList[0].name}}</p>
         </mat-card-content>
         <mat-card-footer>
           <mat-progress-bar mode="determinate" [value]="progressbarValue"></mat-progress-bar>
@@ -35,16 +35,16 @@
     <div class="answer-container">
       <mat-grid-list cols="2" rowHeight="2:1" [gutterSize]="'10px'">
         <mat-grid-tile>
-          <button (click)="nextAnswer()" appChangeBackground [isCorrect]="checkAnswer(game.questionList[0].AnswerList[0], game.questionList[0].rightAnswer)" mat-raised-button>{{game.questionList[0].AnswerList[0]}}</button>
+          <button (click)="nextAnswer(game.questionList[0].answers[2], game.questionList[1].vocabId)" appChangeBackground [isCorrect]="true" mat-raised-button>{{game.questionList[0].answers[2]}}</button>
         </mat-grid-tile>
         <mat-grid-tile>
-          <button (click)="nextAnswer()" appChangeBackground [isCorrect]="checkAnswer(game.questionList[0].AnswerList[1], game.questionList[0].rightAnswer)" mat-raised-button>{{game.questionList[0].AnswerList[1]}}</button>
+          <button (click)="nextAnswer(game.questionList[0].answers[11], game.questionList[1].vocabId)" appChangeBackground [isCorrect]="false" mat-raised-button>{{game.questionList[0].answers[11]}}</button>
         </mat-grid-tile>
         <mat-grid-tile>
-          <button (click)="nextAnswer()" appChangeBackground [isCorrect]="checkAnswer(game.questionList[0].AnswerList[2], game.questionList[0].rightAnswer)" mat-raised-button>{{game.questionList[0].AnswerList[2]}}</button>
+          <button (click)="nextAnswer(game.questionList[0].answers[25], game.questionList[1].vocabId)" appChangeBackground [isCorrect]="false" mat-raised-button>{{game.questionList[0].answers[25]}}</button>
         </mat-grid-tile>
         <mat-grid-tile>
-          <button (click)="nextAnswer()" appChangeBackground [isCorrect]="checkAnswer(game.questionList[0].AnswerList[3], game.questionList[0].rightAnswer)" mat-raised-button>{{game.questionList[0].AnswerList[3]}}</button>
+          <button (click)="nextAnswer(game.questionList[0].answers[39], game.questionList[1].vocabId)" appChangeBackground [isCorrect]="false" mat-raised-button>{{game.questionList[0].answers[25]}}</button>
         </mat-grid-tile>
       </mat-grid-list>
     </div>
@@ -54,7 +54,7 @@
     <div class="question-container">
       <mat-card class="example-card">
         <mat-card-content>
-          <p>{{game.questionList[1].questionText}}</p>
+          <p>{{game.questionList[1].name}}</p>
         </mat-card-content>
 
         <mat-card-footer>
@@ -65,16 +65,16 @@
     <div class="answer-container">
       <mat-grid-list cols="2" rowHeight="2:1" [gutterSize]="'10px'">
         <mat-grid-tile>
-          <button (click)="nextAnswer()" appChangeBackground [isCorrect]="checkAnswer(game.questionList[1].AnswerList[0], game.questionList[1].rightAnswer)" mat-raised-button>{{game.questionList[1].AnswerList[0]}}</button>
+          <button (click)="nextAnswer(game.questionList[1].answers[0], game.questionList[1].vocabId)" appChangeBackground [isCorrect]="checkAnswer(game.questionList[1].answers[12], game.questionList[1].vocabId)" mat-raised-button>{{game.questionList[1].answers[12]}}</button>
         </mat-grid-tile>
         <mat-grid-tile>
-          <button (click)="nextAnswer()" appChangeBackground [isCorrect]="checkAnswer(game.questionList[1].AnswerList[1], game.questionList[1].rightAnswer)" mat-raised-button>{{game.questionList[1].AnswerList[1]}}</button>
+          <button (click)="nextAnswer(game.questionList[1].answers[1], game.questionList[1].vocabId)" appChangeBackground [isCorrect]="checkAnswer(game.questionList[1].answers[20], game.questionList[1].vocabId)" mat-raised-button>{{game.questionList[1].answers[20]}}</button>
         </mat-grid-tile>
         <mat-grid-tile>
-          <button (click)="nextAnswer()" appChangeBackground [isCorrect]="checkAnswer(game.questionList[1].AnswerList[2], game.questionList[1].rightAnswer)" mat-raised-button>{{game.questionList[1].AnswerList[2]}}</button>
+          <button (click)="nextAnswer(game.questionList[1].answers[2], game.questionList[1].vocabId)" appChangeBackground [isCorrect]="checkAnswer(game.questionList[1].answers[37], game.questionList[1].vocabId)" mat-raised-button>{{game.questionList[1].answers[37]}}</button>
         </mat-grid-tile>
         <mat-grid-tile>
-          <button (click)="nextAnswer()" appChangeBackground [isCorrect]="checkAnswer(game.questionList[1].AnswerList[3], game.questionList[1].rightAnswer)" mat-raised-button>{{game.questionList[1].AnswerList[3]}}</button>
+          <button (click)="nextAnswer(game.questionList[1].answers[3], game.questionList[1].vocabId)" appChangeBackground [isCorrect]="checkAnswer(game.questionList[1].answers[46], game.questionList[1].vocabId)" mat-raised-button>{{game.questionList[1].answers[46]}}</button>
         </mat-grid-tile>
       </mat-grid-list>
     </div>
@@ -84,7 +84,7 @@
     <div class="question-container">
       <mat-card class="example-card">
         <mat-card-content>
-          <p>{{game.questionList[2].questionText}}</p>
+          <p>{{game.questionList[2].name}}</p>
         </mat-card-content>
 
         <mat-card-footer>
@@ -95,16 +95,16 @@
     <div class="answer-container">
       <mat-grid-list cols="2" rowHeight="2:1" [gutterSize]="'10px'">
         <mat-grid-tile>
-          <button (click)="nextAnswer()" appChangeBackground [isCorrect]="checkAnswer(game.questionList[2].AnswerList[0], game.questionList[2].rightAnswer)" mat-raised-button>{{game.questionList[2].AnswerList[0]}}</button>
+          <button (click)="nextAnswer(game.questionList[1].answers[0], game.questionList[1].vocabId)" appChangeBackground [isCorrect]="checkAnswer(game.questionList[2].answers[4], game.questionList[1].vocabId)" mat-raised-button>{{game.questionList[2].answers[4]}}</button>
         </mat-grid-tile>
         <mat-grid-tile>
-          <button (click)="nextAnswer()" appChangeBackground [isCorrect]="checkAnswer(game.questionList[2].AnswerList[1], game.questionList[2].rightAnswer)" mat-raised-button>{{game.questionList[2].AnswerList[1]}}</button>
+          <button (click)="nextAnswer(game.questionList[1].answers[0], game.questionList[1].vocabId)" appChangeBackground [isCorrect]="checkAnswer(game.questionList[2].answers[30], game.questionList[1].vocabId)" mat-raised-button>{{game.questionList[2].answers[30]}}</button>
         </mat-grid-tile>
         <mat-grid-tile>
-          <button (click)="nextAnswer()" appChangeBackground [isCorrect]="checkAnswer(game.questionList[2].AnswerList[2], game.questionList[2].rightAnswer)" mat-raised-button>{{game.questionList[2].AnswerList[2]}}</button>
+          <button (click)="nextAnswer(game.questionList[1].answers[0], game.questionList[1].vocabId)" appChangeBackground [isCorrect]="checkAnswer(game.questionList[2].answers[36], game.questionList[1].vocabId)" mat-raised-button>{{game.questionList[2].answers[36]}}</button>
         </mat-grid-tile>
         <mat-grid-tile>
-          <button (click)="nextAnswer()" appChangeBackground [isCorrect]="checkAnswer(game.questionList[2].AnswerList[3], game.questionList[2].rightAnswer)" mat-raised-button>{{game.questionList[2].AnswerList[3]}}</button>
+          <button (click)="nextAnswer(game.questionList[1].answers[0], game.questionList[1].vocabId)" appChangeBackground [isCorrect]="checkAnswer(game.questionList[2].answers[45], game.questionList[1].vocabId)" mat-raised-button>{{game.questionList[2].answers[45]}}</button>
         </mat-grid-tile>
       </mat-grid-list>
     </div>

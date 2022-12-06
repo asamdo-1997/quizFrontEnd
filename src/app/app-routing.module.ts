@@ -13,8 +13,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'game-overview', component: GameOverviewComponent },
-  { path: 'game', component: GameComponent },
+  { path: 'game-overview/:id', component: GameOverviewComponent },
+  { path: 'game/:id', component: GameComponent },
   { path: 'admin', component: VocabComponent },
 ];
 

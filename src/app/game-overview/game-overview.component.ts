@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import {GameService} from "../services/game.service";
 
 @Component({
   selector: 'app-game-overview',
@@ -7,20 +8,24 @@ import {Router} from "@angular/router";
   styleUrls: ['./game-overview.component.css']
 })
 export class GameOverviewComponent implements OnInit {
-
-  games = [1,2,3,4,5,6];
+  gameId: string = "";
+  games = [];
   imgUrl = "https://cdn.dribbble.com/users/5642965/screenshots/12675462/media/a5289f4656018eb4d2f20a72254caf50.jpg?compress=1&resize=1600x1200&vertical=top";
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private gameService: GameService) { }
 
   ngOnInit(): void {
-
+    this.gameId = this.activatedRoute.snapshot.paramMap.get('id')!;
+    this.gameService.getGame(this.activatedRoute.snapshot.paramMap.get('id')!).subscribe(value => {
+      console.log(value)
+      this.games = value.rounds;
+    })
   }
 
   returnToOverView(){
     this.router.navigate(['/dashboard'])
   }
   continueGame(){
-    this.router.navigate(['/game'])
+    this.router.navigate(['/game/'+this.gameId])
   }
 }

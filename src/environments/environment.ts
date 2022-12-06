@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   vocabAdress: 'http://localhost:8097/',
+  gameAdress: 'http://localhost:8098/',
   userAdress: 'http://localhost:8099/',
 };
 

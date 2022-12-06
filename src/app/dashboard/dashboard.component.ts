@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+import {GameService} from "../services/game.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -20,14 +21,17 @@ export class DashboardComponent implements OnInit {
 
   imgUrl = "https://cdn.dribbble.com/users/5642965/screenshots/12675462/media/a5289f4656018eb4d2f20a72254caf50.jpg?compress=1&resize=1600x1200&vertical=top";
 
-  constructor(private route: Router) {
+  constructor(private route: Router, private gameService: GameService) {
   }
 
   ngOnInit(): void {
   }
 
   startNewGame() {
-    this.route.navigate(['/game-overview'])
+    this.gameService.createGame(1,2,"test").subscribe(value => {
+      console.log(value);
+    })
+    //this.route.navigate(['/game-overview'])
 
   }
 
