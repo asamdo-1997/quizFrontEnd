@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {interval, timeout} from "rxjs";
 import {GameService} from "../services/game.service";
+import {Round} from "../entity/round";
 
 @Component({
   selector: 'app-game',
@@ -15,46 +16,18 @@ export class GameComponent implements OnInit {
   curSec: number = 0;
   currentQuestition: number = 0;
   sub: any;
-  gameId: string = "";
+  gameId: number = 0;
   isright: boolean = false;
-  game =
-    {
-      id: 1,
-      spieler1: "jonas",
-      spieler2: "Dominik",
-      gegnerSpielt: false,
-      runde: 1,
-      questionList: [
-        {
-          vocabId: 1,
-          name: "Auto",
-          answers: ["Car", "Cur", "Cat", "Cot"],
-          rightAnswer: "Car",
-        },
-        {
-          vocabId: 2,
-          name: "Straße",
-          answers: ["Stoot", "Street", "Straut", "Struet"],
-          rightAnswer: "Street",
-        },
-        {
-          vocabId: 3,
-          name: "Haus",
-          answers: ["Heise", "Hause", "Hoise", "House"],
-          rightAnswer: "House",
-        }
-      ],
-    };
+  round!: Round;
 
   constructor(private route: Router, private activatedRoute: ActivatedRoute, private gameService: GameService) {
   }
 
   ngOnInit(): void {
-    this.gameId = this.activatedRoute.snapshot.paramMap.get('id')!;
+    this.gameId = +this.activatedRoute.snapshot.paramMap.get('id')!;
     this.gameService.getCurrentRound(this.gameId).subscribe(value => {
+      this.round = value;
       console.log(value);
-      this.game.questionList = value.questions;
-      console.log(this.game);
     })
     this.currentQuestition = 1;
     this.startTimer(this.durationOftimer);
@@ -93,7 +66,6 @@ export class GameComponent implements OnInit {
     this.isright=this.checkAnswer(userAnswer,vocabId);
     this.stoppCounter();
     setTimeout(() => {
-      console.log(this.currentQuestition);
       if (this.currentQuestition < 3) {
         this.currentQuestition++;
         this.startTimer(this.durationOftimer);

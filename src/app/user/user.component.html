@@ -1,0 +1,36 @@
+<!--<table mat-table matTableExporter [dataSource]="dataSource" #sort="matSort" matSort width="100%">
+
+  <ng-container matColumnDef="siteCode">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Username</th>
+    <td mat-cell *matCellDef="let element"> {{element.siteCode}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="location">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Location</th>
+    <td mat-cell *matCellDef="let element"> {{element.location.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="brand">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Brand</th>
+    <td mat-cell *matCellDef="let element"> {{element.serverModel.brandName}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="model">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Model</th>
+    <td mat-cell *matCellDef="let element"> {{element.serverModel.modelName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="edit">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <button (click)="deleteUser(element.id)" mat-raised-button color="warn" class="button_in_list">
+        <mat-icon>delete_outline</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+-->

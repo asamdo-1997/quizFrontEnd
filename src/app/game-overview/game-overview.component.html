@@ -20,27 +20,27 @@
     </div>
     <div class="flexbox-item"></div>
   </div>
-  <div class="flexbox-panel" *ngFor="let round of games; let i = index">
+  <div class="flexbox-panel" *ngFor="let round of rounds; let i = index">
     <div class="flexbox-item">
-      <span class="dot-green"></span>
+      <span [ngClass]="dot"></span>
     </div>
     <div class="flexbox-item">
-      <span class="dot-green"></span>
+      <span [ngClass]="dot"></span>
     </div>
     <div class="flexbox-item">
-      <span class="dot-red"></span>
+      <span [ngClass]="dot"></span>
     </div>
     <div class="flexbox-item">
-      <span class="dot-round">{{i+1}}</span>
+      <span class="dot-round">{{i + 1}}</span>
     </div>
     <div class="flexbox-item">
-      <span class="dot-grey"></span>
+      <span [ngClass]="dot"></span>
     </div>
     <div class="flexbox-item">
-      <span class="dot-grey"></span>
+      <span [ngClass]="dot"></span>
     </div>
     <div class="flexbox-item">
-      <span class="dot-grey"></span>
+      <span [ngClass]="dot"></span>
     </div>
   </div>
 

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {User} from "../entity/User";
+import {Round} from "../entity/round";
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,8 @@ export class GameService {
   getGame(userId: string){
     return this.http.get<any>(this.url+'game/getgamebyid/'+userId);
   }
-  getCurrentRound(gameId: string){
-    return this.http.get<any>(this.url+'game/currentround/'+gameId);
+  getCurrentRound(gameId: number){
+    return this.http.get<Round>(this.url+'game/currentround/'+gameId);
   }
 
   getRightAnswer(vocabId:number, userId:number,translationId:number, questionId:number){

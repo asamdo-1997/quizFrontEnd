@@ -9,7 +9,12 @@ import {GameService} from "../services/game.service";
 })
 export class GameOverviewComponent implements OnInit {
   gameId: string = "";
-  games = [];
+  rounds = [{
+    id: 0,
+    questions: [],
+    done: false
+  }];
+  dot: string = "dot-grey";
   imgUrl = "https://cdn.dribbble.com/users/5642965/screenshots/12675462/media/a5289f4656018eb4d2f20a72254caf50.jpg?compress=1&resize=1600x1200&vertical=top";
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private gameService: GameService) { }
@@ -18,7 +23,7 @@ export class GameOverviewComponent implements OnInit {
     this.gameId = this.activatedRoute.snapshot.paramMap.get('id')!;
     this.gameService.getGame(this.activatedRoute.snapshot.paramMap.get('id')!).subscribe(value => {
       console.log(value)
-      this.games = value.rounds;
+      this.rounds = value.rounds;
     })
   }
 

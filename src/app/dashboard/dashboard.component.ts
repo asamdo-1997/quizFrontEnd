@@ -30,9 +30,8 @@ export class DashboardComponent implements OnInit {
   startNewGame() {
     this.gameService.createGame(1,2,"test").subscribe(value => {
       console.log(value);
+      this.route.navigate(['/game-overview/'+value])
     })
-    //this.route.navigate(['/game-overview'])
-
   }
 
   logout() {

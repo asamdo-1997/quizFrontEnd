@@ -25,6 +25,7 @@ import { GameComponent } from './game/game.component';
 import { GameOverviewComponent } from './game-overview/game-overview.component';
 import { ChangeBackgroundDirective } from './game/change-background.directive';
 import { RegisterComponent } from './register/register.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { RegisterComponent } from './register/register.component';
     GameOverviewComponent,
     ChangeBackgroundDirective,
     RegisterComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
