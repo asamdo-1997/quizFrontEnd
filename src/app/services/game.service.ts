@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
-import {User} from "../entity/User";
 import {Round} from "../entity/round";
 
 @Injectable({
@@ -30,6 +29,6 @@ export class GameService {
       translationId:translationId,
       questionId:questionId,
     }
-    return this.http.post<any>(this.url+'game/check',elem);
+    return this.http.post<Round>(this.url+'game/check',elem);
   }
 }

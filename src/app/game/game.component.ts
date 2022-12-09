@@ -27,7 +27,7 @@ export class GameComponent implements OnInit {
     this.gameId = +this.activatedRoute.snapshot.paramMap.get('id')!;
     this.gameService.getCurrentRound(this.gameId).subscribe(value => {
       this.round = value;
-      console.log(value);
+      console.log(this.round.questions[1].answers);
     })
     this.currentQuestition = 1;
     this.startTimer(this.durationOftimer);
