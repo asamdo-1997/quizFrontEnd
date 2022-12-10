@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {interval, timeout} from "rxjs";
 import {GameService} from "../services/game.service";
 import {Round} from "../entity/round";
+import {AnswerDto} from "../entity/AnswerDto";
 
 @Component({
   selector: 'app-game',
@@ -18,7 +19,11 @@ export class GameComponent implements OnInit {
   sub: any;
   gameId: number = 0;
   isright: boolean = false;
-  round!: Round;
+  round: Round = {
+    questions: [{
+      answers: [{}, {}, {}, {},]
+    }]
+  };
 
   constructor(private route: Router, private activatedRoute: ActivatedRoute, private gameService: GameService) {
   }
@@ -27,7 +32,6 @@ export class GameComponent implements OnInit {
     this.gameId = +this.activatedRoute.snapshot.paramMap.get('id')!;
     this.gameService.getCurrentRound(this.gameId).subscribe(value => {
       this.round = value;
-      console.log(this.round.questions[1].answers);
     })
     this.currentQuestition = 1;
     this.startTimer(this.durationOftimer);
@@ -50,7 +54,7 @@ export class GameComponent implements OnInit {
           this.currentQuestition++;
           this.startTimer(this.durationOftimer);
         } else {
-            this.returnToOverview()
+          this.returnToOverview()
         }
       }
     });
@@ -62,33 +66,25 @@ export class GameComponent implements OnInit {
     this.curSec = 0;
   }
 
-  nextAnswer(userAnswer: string, vocabId: number) {
-    this.isright=this.checkAnswer(userAnswer,vocabId);
-    this.stoppCounter();
-    setTimeout(() => {
-      if (this.currentQuestition < 3) {
-        this.currentQuestition++;
-        this.startTimer(this.durationOftimer);
-      } else {
-        //this.route.navigate(['/game-overview']);
-      }
-    }, 1000);
+  nextAnswer(translationId: number, vocabId: number, questionId: number) {
+    this.checkAnswer(translationId, vocabId, questionId);
+    this.isright = false;
   }
 
-  checkAnswer(userAnswer: string, vocabId: number): boolean {
-    let rightAnswer = "Zahn";
-    //this.gameService.getRightAnswer(vocabId,1,1,1).subscribe(value => {
-      //console.log(value);
-    //})
-    //hier abfrage für answer
-    if (userAnswer == rightAnswer) {
-      this.isright = true;
-      console.log(this.isright)
-      return true;
-    } else {
-      console.log(this.isright)
-      return false;
-    }
+  checkAnswer(translationId: number, vocabId: number, questionId: number) {
+    this.gameService.getRightAnswer(vocabId, +localStorage.getItem("id")!, translationId, "", questionId).subscribe(value => {
+      this.gameService.answerChecked.next(value.correct);
+      //this.gameService.answerChecked.next("");
+      this.stoppCounter();
+      setTimeout(() => {
+        if (this.currentQuestition < 3) {
+          this.currentQuestition++;
+          this.startTimer(this.durationOftimer);
+        } else {
+          this.route.navigate(['/dashboard']);
+        }
+      }, 1000);
+    });
 
   }
 

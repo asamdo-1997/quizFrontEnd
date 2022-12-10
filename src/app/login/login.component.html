@@ -4,17 +4,21 @@
   </mat-toolbar>
   <div class="login-page">
     <div class="login-container">
+      <div *ngIf="errorMsg" class="errorMsg">
+        {{errorMsg}}
+      </div>
       <form [formGroup]="loginForm" type="form">
         <mat-form-field appearance="outline">
           <mat-label>Username</mat-label>
           <input matInput formControlName="username">
         </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Password</mat-label>
-          <input matInput formControlName="password" type="password">
-        </mat-form-field>
-        <button class="btn btn-outline-unique waves-effect" (click)="login()">Sign in</button>
+        <button [disabled]="!loginForm.valid" class="btn btn-outline-unique waves-effect" (click)="login()">Sign in</button>
       </form>
     </div>
+    <p>1. http://localhost:4200/admin aufrufen und zwei User anlegen<br>
+      2. http://localhost:4200/login mit den Nutzernamen des User einloggen<br>
+      3. Neues Spiel Starten und Spiel spielen<br>
+      4. Ausloggen und mit zweitem Nutzernamen anmelden und Offenes Spiel spielen<br>
+    </p>
   </div>
 </div>

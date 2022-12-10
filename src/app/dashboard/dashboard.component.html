@@ -13,48 +13,29 @@
 </mat-toolbar>
 <div class="container">
 
+  <div class="sub-title name">
+    <h3>Hallo {{name}}, es ist zeit für ein Duell!</h3>
+  </div>
   <div class="newGameButton-Container">
     <button mat-raised-button color="accent" (click)="startNewGame()">Neues Spiel starten +</button>
   </div>
 
-  <span class="sub-title">Aktuelle Spiele</span>
+  <span class="sub-title">Aktuelle Spiele</span><br><br>
   <mat-grid-list cols="3" rowHeight="1:1">
-    <mat-grid-tile *ngFor="let game of games">
+    <mat-grid-tile *ngFor="let game of usergames">
       <mat-card class="game-overview-card">
         <img [src]="imgUrl" class="game-overview-card-image">
-        <mat-card-title>{{game.spieler2}}</mat-card-title>
+        <mat-card-title>{{game.user2}}</mat-card-title>
         <mat-card-content>
-          <p>Runde: {{game.runde}} - 9</p>
+          <p>Runde: {{game.rounds.length}} - 9</p>
         </mat-card-content>
         <mat-card-actions>
-          <button *ngIf="!game.gegnerSpielt" class="game-overview-card-button" mat-raised-button color="primary">
+          <button *ngIf="game.nextUser == userId" class="game-overview-card-button" mat-raised-button color="primary" (click)="startCurrentRound(game.id)">
             Spielen
           </button>
-          <button *ngIf="game.gegnerSpielt" class="game-overview-card-button" mat-raised-button color="primary"
+          <button *ngIf="game.nextUser !== userId" class="game-overview-card-button" mat-raised-button color="primary"
                   [disabled]="true">Gegner Spielt
           </button>
-        </mat-card-actions>
-        <mat-card-footer>
-          <!--
-     <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-      -->
-        </mat-card-footer>
-      </mat-card>
-    </mat-grid-tile>
-
-  </mat-grid-list>
-
-  <span class="sub-title">Beendete Spiele</span>
-  <mat-grid-list cols="3" rowHeight="1:1">
-    <mat-grid-tile *ngFor="let game of gamesFinished;let i = index">
-      <mat-card class="game-overview-card">
-        <img [src]="imgUrl" class="game-overview-card-image">
-        <mat-card-title>{{game.spieler2}}</mat-card-title>
-        <mat-card-content>
-          <p>Runde: {{game.runde}} - 9</p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button class="game-overview-card-button" mat-raised-button color="basic">Anzeigen</button>
         </mat-card-actions>
         <mat-card-footer>
           <!--

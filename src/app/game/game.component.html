@@ -25,7 +25,7 @@
     <div class="question-container">
       <mat-card class="example-card">
         <mat-card-content>
-         <!-- <p>{{round.questions[0].name}}</p>-->
+         <p>{{round.questions![0].name}}</p>
         </mat-card-content>
         <mat-card-footer>
           <mat-progress-bar mode="determinate" [value]="progressbarValue"></mat-progress-bar>
@@ -35,29 +35,27 @@
     <div class="answer-container">
       <mat-grid-list cols="2" rowHeight="2:1" [gutterSize]="'10px'">
         <mat-grid-tile>
-          <button appChangeBackground [isCorrect]="true" mat-raised-button></button>
-        </mat-grid-tile>
-        <!--
-        <mat-grid-tile>
-          <button (click)="nextAnswer(round.questions[0].answers.entries()[0], round.questions[1].vocabId)" appChangeBackground [isCorrect]="false" mat-raised-button>{{round.questions[0].answers.entries()[0]}}</button>
+          <button (click)="nextAnswer(round.questions![0].answers![0].translationId!, round.questions![0].vocabId!, round.questions![0].questionId!)" appChangeBackground [isCorrect]="isright" mat-raised-button>{{round.questions![0].answers![0].answerValue!}}</button>
         </mat-grid-tile>
         <mat-grid-tile>
-          <button (click)="nextAnswer(round.questions[0].answers.entries()[0], round.questions[1].vocabId)" appChangeBackground [isCorrect]="false" mat-raised-button>{{round.questions[0].answers.entries()[0]}}</button>
+          <button (click)="nextAnswer(round.questions![0].answers![1].translationId!, round.questions![0].vocabId!, round.questions![0].questionId!)" appChangeBackground [isCorrect]="isright" mat-raised-button>{{round.questions![0].answers![1].answerValue!}}</button>
         </mat-grid-tile>
         <mat-grid-tile>
-          <button (click)="nextAnswer(round.questions[0].answers.entries()[0], round.questions[1].vocabId)" appChangeBackground [isCorrect]="false" mat-raised-button>{{round.questions[0].answers.entries()[0]}}</button>
+          <button (click)="nextAnswer(round.questions![0].answers![2].translationId!, round.questions![0].vocabId!, round.questions![0].questionId!)" appChangeBackground [isCorrect]="isright" mat-raised-button>{{round.questions![0].answers![2].answerValue!}}</button>
         </mat-grid-tile>
-        -->
+        <mat-grid-tile>
+          <button (click)="nextAnswer(round.questions![0].answers![3].translationId!, round.questions![0].vocabId!, round.questions![0].questionId!)" appChangeBackground [isCorrect]="isright" mat-raised-button>{{round.questions![0].answers![3].answerValue!}}</button>
+        </mat-grid-tile>
       </mat-grid-list>
     </div>
   </div>
 
-  <!--
+
   <div class="question" *ngIf="currentQuestition == 2">
     <div class="question-container">
       <mat-card class="example-card">
         <mat-card-content>
-          <p>{{round.questions[1].name}}</p>
+          <p>{{round.questions![1].name}}</p>
         </mat-card-content>
 
         <mat-card-footer>
@@ -66,20 +64,20 @@
       </mat-card>
     </div>
     <div class="answer-container">
-      <mat-grid-list cols="2" rowHeight="2:1" [gutterSize]="'10px'">
-        <mat-grid-tile>
-          <button (click)="nextAnswer(round.questions[1].answers[0], round.questions[1].vocabId)" appChangeBackground [isCorrect]="checkAnswer(round.questions[1].answers[12], round.questions[1].vocabId)" mat-raised-button>{{round.questions[1].answers[12]}}</button>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <button (click)="nextAnswer(round.questions[1].answers[1], round.questions[1].vocabId)" appChangeBackground [isCorrect]="checkAnswer(round.questions[1].answers[20], round.questions[1].vocabId)" mat-raised-button>{{round.questions[1].answers[20]}}</button>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <button (click)="nextAnswer(round.questions[1].answers[2], round.questions[1].vocabId)" appChangeBackground [isCorrect]="checkAnswer(round.questions[1].answers[37], round.questions[1].vocabId)" mat-raised-button>{{round.questions[1].answers[37]}}</button>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <button (click)="nextAnswer(round.questions[1].answers[3], round.questions[1].vocabId)" appChangeBackground [isCorrect]="checkAnswer(round.questions[1].answers[46], round.questions[1].vocabId)" mat-raised-button>{{round.questions[1].answers[46]}}</button>
-        </mat-grid-tile>
-      </mat-grid-list>
+        <mat-grid-list cols="2" rowHeight="2:1" [gutterSize]="'10px'">
+          <mat-grid-tile>
+            <button (click)="nextAnswer(round.questions![1].answers![0].translationId!, round.questions![1].vocabId!, round.questions![1].questionId!)" appChangeBackground [isCorrect]="isright" mat-raised-button>{{round.questions![1].answers![0].answerValue!}}</button>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <button (click)="nextAnswer(round.questions![1].answers![1].translationId!, round.questions![1].vocabId!, round.questions![1].questionId!)" appChangeBackground [isCorrect]="isright" mat-raised-button>{{round.questions![1].answers![1].answerValue!}}</button>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <button (click)="nextAnswer(round.questions![1].answers![2].translationId!, round.questions![1].vocabId!, round.questions![1].questionId!)" appChangeBackground [isCorrect]="isright" mat-raised-button>{{round.questions![1].answers![2].answerValue!}}</button>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <button (click)="nextAnswer(round.questions![1].answers![3].translationId!, round.questions![1].vocabId!, round.questions![1].questionId!)" appChangeBackground [isCorrect]="isright" mat-raised-button>{{round.questions![1].answers![3].answerValue!}}</button>
+          </mat-grid-tile>
+        </mat-grid-list>
     </div>
   </div>
 
@@ -87,7 +85,7 @@
     <div class="question-container">
       <mat-card class="example-card">
         <mat-card-content>
-          <p>{{round.questions[2].name}}</p>
+          <p>{{round.questions![2].name}}</p>
         </mat-card-content>
 
         <mat-card-footer>
@@ -96,22 +94,21 @@
       </mat-card>
     </div>
     <div class="answer-container">
-      <mat-grid-list cols="2" rowHeight="2:1" [gutterSize]="'10px'">
-        <mat-grid-tile>
-          <button (click)="nextAnswer(round.questions[1].answers[0], round.questions[1].vocabId)" appChangeBackground [isCorrect]="checkAnswer(round.questions[2].answers[4], round.questions[1].vocabId)" mat-raised-button>{{round.questions[2].answers[4]}}</button>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <button (click)="nextAnswer(round.questions[1].answers[0], round.questions[1].vocabId)" appChangeBackground [isCorrect]="checkAnswer(round.questions[2].answers[30], round.questions[1].vocabId)" mat-raised-button>{{round.questions[2].answers[30]}}</button>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <button (click)="nextAnswer(round.questions[1].answers[0], round.questions[1].vocabId)" appChangeBackground [isCorrect]="checkAnswer(round.questions[2].answers[36], round.questions[1].vocabId)" mat-raised-button>{{round.questions[2].answers[36]}}</button>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <button (click)="nextAnswer(round.questions[1].answers[0], round.questions[1].vocabId)" appChangeBackground [isCorrect]="checkAnswer(round.questions[2].answers[45], round.questions[1].vocabId)" mat-raised-button>{{round.questions[2].answers[45]}}</button>
-        </mat-grid-tile>
-      </mat-grid-list>
+        <mat-grid-list cols="2" rowHeight="2:1" [gutterSize]="'10px'">
+          <mat-grid-tile>
+            <button (click)="nextAnswer(round.questions![2].answers![0].translationId!, round.questions![2].vocabId!, round.questions![2].questionId!)" appChangeBackground [isCorrect]="isright" mat-raised-button>{{round.questions![2].answers![0].answerValue!}}</button>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <button (click)="nextAnswer(round.questions![2].answers![1].translationId!, round.questions![2].vocabId!, round.questions![2].questionId!)" appChangeBackground [isCorrect]="isright" mat-raised-button>{{round.questions![2].answers![1].answerValue!}}</button>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <button (click)="nextAnswer(round.questions![2].answers![2].translationId!, round.questions![2].vocabId!, round.questions![2].questionId!)" appChangeBackground [isCorrect]="isright" mat-raised-button>{{round.questions![2].answers![2].answerValue!}}</button>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <button (click)="nextAnswer(round.questions![2].answers![3].translationId!, round.questions![2].vocabId!, round.questions![2].questionId!)" appChangeBackground [isCorrect]="isright" mat-raised-button>{{round.questions![2].answers![3].answerValue!}}</button>
+          </mat-grid-tile>
+        </mat-grid-list>
     </div>
   </div>
--->
 
 </div>

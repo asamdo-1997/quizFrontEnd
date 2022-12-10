@@ -26,6 +26,8 @@ import { GameOverviewComponent } from './game-overview/game-overview.component';
 import { ChangeBackgroundDirective } from './game/change-background.directive';
 import { RegisterComponent } from './register/register.component';
 import { UserComponent } from './user/user.component';
+import {MatTableModule} from "@angular/material/table";
+import {MatSortModule} from "@angular/material/sort";
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { UserComponent } from './user/user.component';
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
+    MatTableModule,
+    MatSortModule,
     MatInputModule,
     MatToolbarModule,
     MatIconModule,

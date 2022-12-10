@@ -1,30 +1,34 @@
-<!--<table mat-table matTableExporter [dataSource]="dataSource" #sort="matSort" matSort width="100%">
+<table mat-table [dataSource]="dataSource" #sort="matSort" matSort width="100%">
 
-  <ng-container matColumnDef="siteCode">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Username</th>
-    <td mat-cell *matCellDef="let element"> {{element.siteCode}} </td>
+  <ng-container matColumnDef="nutzerId">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Id</th>
+    <td mat-cell *matCellDef="let element"> {{element.nutzerId}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="location">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Location</th>
-    <td mat-cell *matCellDef="let element"> {{element.location.name}} </td>
+  <ng-container matColumnDef="nutzername">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nutzername</th>
+    <td mat-cell *matCellDef="let element"> {{element.nutzername}} </td>
   </ng-container>
 
-  <ng-container matColumnDef="brand">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Brand</th>
-    <td mat-cell *matCellDef="let element"> {{element.serverModel.brandName}} </td>
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Email</th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
   </ng-container>
 
+  <ng-container matColumnDef="vorname">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Vorname</th>
+    <td mat-cell *matCellDef="let element"> {{element.vorname}} </td>
+  </ng-container>
 
-  <ng-container matColumnDef="model">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Model</th>
-    <td mat-cell *matCellDef="let element"> {{element.serverModel.modelName}} </td>
+  <ng-container matColumnDef="nachname">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nachname</th>
+    <td mat-cell *matCellDef="let element"> {{element.nachname}} </td>
   </ng-container>
 
   <ng-container matColumnDef="edit">
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let element">
-      <button (click)="deleteUser(element.id)" mat-raised-button color="warn" class="button_in_list">
+      <button (click)="deleteUser(element.nutzerId)" mat-raised-button color="warn" class="button_in_list">
         <mat-icon>delete_outline</mat-icon>
       </button>
     </td>
@@ -33,4 +37,32 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
--->
+<br>
+<br>
+<h1>Add new User</h1>
+<form [formGroup]="form">
+      <mat-form-field appearance="outline">
+        <mat-label>Nutzername</mat-label>
+        <input formControlName="nutzername" matInput placeholder="nutzername">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>email</mat-label>
+        <input type="email" formControlName="email" matInput placeholder="email">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Vorname</mat-label>
+        <input formControlName="vorname" matInput placeholder="vorname">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Nachname</mat-label>
+        <input formControlName="nachname" matInput placeholder="nachname">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+
+      <button (click)="addUser()" mat-raised-button color="" class="button_in_list">
+        <mat-icon>add</mat-icon>
+      </button>
+</form>

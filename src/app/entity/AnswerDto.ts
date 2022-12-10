@@ -1,4 +1,4 @@
 export interface AnswerDto{
-  translationId: number;
-  answerValue: string;
+  translationId?: number;
+  answerValue?: string;
 }

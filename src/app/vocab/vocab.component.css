@@ -1,7 +1,4 @@
-.fullwidthcontainer {
-  height: 100vh;
-  width: 100%;
-}
+
 #fileUpload {
   position: absolute;
   z-index: 9;

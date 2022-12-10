@@ -14,6 +14,10 @@ export class GameOverviewComponent implements OnInit {
     questions: [],
     done: false
   }];
+  user1: number = 0;
+  user2: number = 0;
+  scorePlayer1: number = 0;
+  scorePlayer2: number = 0;
   dot: string = "dot-grey";
   imgUrl = "https://cdn.dribbble.com/users/5642965/screenshots/12675462/media/a5289f4656018eb4d2f20a72254caf50.jpg?compress=1&resize=1600x1200&vertical=top";
 
@@ -24,7 +28,11 @@ export class GameOverviewComponent implements OnInit {
     this.gameService.getGame(this.activatedRoute.snapshot.paramMap.get('id')!).subscribe(value => {
       console.log(value)
       this.rounds = value.rounds;
-    })
+      this.user1 = value.user1;
+      this.user2 = value.user2;
+      this.scorePlayer1 = value.scorePlayer1;
+      this.scorePlayer2 = value.scorePlayer2;
+    });
   }
 
   returnToOverView(){
