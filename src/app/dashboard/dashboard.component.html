@@ -25,9 +25,11 @@
     <mat-grid-tile *ngFor="let game of usergames">
       <mat-card class="game-overview-card">
         <img [src]="imgUrl" class="game-overview-card-image">
-        <mat-card-title>{{game.user2}}</mat-card-title>
+        <mat-card-title>Gegner ID:{{game.user2}}</mat-card-title>
         <mat-card-content>
+          <!--
           <p>Runde: {{game.rounds.length}} - 9</p>
+          -->
         </mat-card-content>
         <mat-card-actions>
           <button *ngIf="game.nextUser == userId" class="game-overview-card-button" mat-raised-button color="primary" (click)="startCurrentRound(game.id)">
