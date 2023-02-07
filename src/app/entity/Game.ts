@@ -11,4 +11,5 @@ export interface Game {
   winnerId: number;
   scorePlayer1: number;
   scorePlayer2: number;
+  version?: number;
 }
